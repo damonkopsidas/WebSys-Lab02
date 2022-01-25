@@ -9,6 +9,22 @@ var port = PORT;
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
+// create routes for the admin section
+//get an instance of the router
+var adminRouter = express.Router();
+// admin main page. the dashboard (http://localhost:PORT/admin)
+adminRouter.get('/', function(req, res){
+    res.send('ٱلْحَمْدُ لِلَّٰهِ'); });
+// users page (http://localhost:PORT/admin/users)
+adminRouter.get('/users', function(req, res){
+    res.send('أَسْتَغْفِرُ ٱللّٰهَ');
+});
+// posts page (http://localhost:PORT/admin/posts)
+adminRouter.get('/posts', function(req,res){
+    res.send('بارك الله فيك');
+});
+//apply the routes to our application
+app.use('/admin', adminRouter);
 //start the server
 app.listen(PORT);
 console.log('Express Server running at http://127.0.0.1:'.PORT);

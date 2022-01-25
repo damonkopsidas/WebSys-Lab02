@@ -32,6 +32,16 @@ adminRouter.get('/users', function(req, res){
 adminRouter.get('/posts', function(req,res){
     res.send('بارك الله فيك');
 });
+//route middleware to validate :name
+adminRouter.param('name', function(req, res, next, name){
+    //do validation on name
+    //log something
+    console.log('doing name validations on ' + name);
+    // once validation is done save new item in req
+    req.name = name;
+    //go to the next thing
+    next();
+});
 //route with parameters (http://localhost:PORT/admin/users/:name)
 adminRouter.get('/users/:name', function(req, res){
     res.send('hello ' + req.params.name+ '!');

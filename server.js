@@ -17,7 +17,7 @@ var adminRouter = express.Router();
 adminRouter.use(function(req, res, next){
     //log each request to the console
     console.log(req.method, req.url);
-    console.log("حليب");
+    console.log("it works");
     //continue doing what we were doing and go to route
     next();
 });
@@ -31,6 +31,10 @@ adminRouter.get('/users', function(req, res){
 // posts page (http://localhost:PORT/admin/posts)
 adminRouter.get('/posts', function(req,res){
     res.send('بارك الله فيك');
+});
+//route with parameters (http://localhost:PORT/admin/users/:name)
+adminRouter.get('/users/:name', function(req, res){
+    res.send('hello ' + req.params.name+ '!');
 });
 //apply the routes to our application
 app.use('/admin', adminRouter);

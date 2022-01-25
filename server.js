@@ -17,6 +17,7 @@ var adminRouter = express.Router();
 adminRouter.use(function(req, res, next){
     //log each request to the console
     console.log(req.method, req.url);
+    console.log("حليب");
     //continue doing what we were doing and go to route
     next();
 });

@@ -46,6 +46,15 @@ adminRouter.param('name', function(req, res, next, name){
 adminRouter.get('/users/:name', function(req, res){
     res.send('hello ' + req.params.name+ '!');
 });
+app.route('/login')
+// show the form (GET http://localhost:PORT/login)
+.get(function(req,res){
+    res.send('this is the login form');
+})
+//process the form (POST http:localhost:PORT/login)
+.post(function(req,res){console.log('processing');
+res.send('processing the login form!');
+});
 //apply the routes to our application
 app.use('/admin', adminRouter);
 //start the server
